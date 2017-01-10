@@ -444,7 +444,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					} else {
 						clearTimeout(repeater[bid]);
 					}
-				}, 200)
+				}, 210)
 			}
 
 			function checkOverflow(el)
