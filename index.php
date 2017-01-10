@@ -415,7 +415,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					var _hidden = _this.find(".card-hidden");
 					var rand = getRandomColor();
 					var ct = getRandomContent();
-					var dur = (ct[0].length * 200) + 2500;
+					var dur = (ct[0].length * 210) + 2500;
 					_this.data("duration", dur);
 					_this.data("direction", getRandomDirection());
 					_this.data("id", id);
@@ -569,7 +569,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 						_display.find(".card-text").empty();
 						_display.css(m, "0");
 						assignContent(obj, getRandomContent());
-						var dur = (obj.data("value")[0].length * 200) + 2500;
+						var dur = (obj.data("value")[0].length * 210) + 2500;
 						timeouts[bid] = setTimeout(function() {
 							// var d =  (obj.data("value")[0].length * 200) + 2500;
 							// obj.data("duration", d);
