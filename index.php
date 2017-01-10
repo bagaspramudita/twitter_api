@@ -139,16 +139,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<div class="row">
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text"></div>
-				</div>
-				<div class="card-hidden">
-				</div>
-				<a href="" target="_blank">
-				</a>
-			</div>
- 			<div class="card">
-				<div class="card-display">
-					<div class="card-text"></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -157,7 +148,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text"></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -166,7 +157,16 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text"></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+				</div>
+				<div class="card-hidden">
+				</div>
+				<a href="" target="_blank">
+				</a>
+			</div>
+			<div class="card">
+				<div class="card-display">
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -177,16 +177,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<div class="row">
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text"></div>
-				</div>
-				<div class="card-hidden">
-				</div>
-				<a href="" target="_blank">
-				</a>
-			</div>
- 			<div class="card">
-				<div class="card-display">
-					<div class="card-text"></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -195,7 +186,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text"></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -204,7 +195,16 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text"></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+				</div>
+				<div class="card-hidden">
+				</div>
+				<a href="" target="_blank">
+				</a>
+			</div>
+			<div class="card">
+				<div class="card-display">
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -215,16 +215,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<div class="row">
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text"></div>
-				</div>
-				<div class="card-hidden">
-				</div>
-				<a href="" target="_blank">
-				</a>
-			</div>
- 			<div class="card">
-				<div class="card-display">
-					<div class="card-text"></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -233,7 +224,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text"></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -242,7 +233,16 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text"></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+				</div>
+				<div class="card-hidden">
+				</div>
+				<a href="" target="_blank">
+				</a>
+			</div>
+			<div class="card">
+				<div class="card-display">
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -313,18 +313,21 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				z-index: 4;
 				
 			}
-			.card .card-display .card-text
+			.card .card-display .card-text-container
 			{
 				position: absolute;
 				max-width: 100%;
 				font-size: 40px;
 				padding: 0 12px;
 				box-sizing: border-box;
-				text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
-				word-wrap: break-word;
 				top: 50%;
 				-webkit-transform: translate(0, -50%);
 				transform: translate(0, -50%);
+				word-wrap: break-word;
+			}
+			.card .card-display .card-text-container .card-text
+			{
+				text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 			}
 			.card .card-hidden
 			{
@@ -375,7 +378,22 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			{background-color: #0288D1;}
 			.color6
 			{background-color: #0277BD;}
-
+			.typer
+			{
+				animation: typer 1s infinite;
+				text-shadow: 0 0 transparent !important;
+			}
+			@keyframes typer
+			{
+				0%, 40%, 100%
+				{
+					color: #fff;
+				}
+				70%
+				{
+					color: transparent;
+				}
+			}
 		</style>
 		<script>
 			var colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
@@ -385,7 +403,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			<?php foreach($data_trends->trends as $datatrends): ?>
 				content.push(["<?php echo $datatrends->name ?>" , "<?php echo $datatrends->url ?>"])
 			<?php endforeach; ?>
-			console.log(content)
 			var aContent = [];
 			var repeater = [];
 			var timeouts = [];
@@ -398,7 +415,8 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					var _hidden = _this.find(".card-hidden");
 					var rand = getRandomColor();
 					var ct = getRandomContent();
-					_this.data("duration", getRandomDuration(4000, 5500));
+					var dur = (ct[0].length * 200) + 2500;
+					_this.data("duration", dur);
 					_this.data("direction", getRandomDirection());
 					_this.data("id", id);
 					_display.addClass(rand);
@@ -416,23 +434,26 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			function slowType(obj, text, index) {
 				var body = obj.find(".card-display .card-text");
 				var str = text.split("");
-				var bid = obj.data("id")
+				var bid = obj.data("id");
 				repeater[bid] = setTimeout(function() {
-					if(isType == true)
-					{
-						if (index < str.length) {
-							body.html(body.html() + str[index])
-							index += 1;
-							slowType(obj, text, index)
-						} else {
-							clearTimeout(repeater[bid]);
-						}
-					}
-					else
-					{
+					if (index < str.length) {
+						body.html(body.html() + str[index])
+						index += 1;
+						checkOverflow(body);
+						slowType(obj, text, index);
+					} else {
 						clearTimeout(repeater[bid]);
 					}
 				}, 200)
+			}
+
+			function checkOverflow(el)
+			{
+				el = el.closest(".card-text-container");
+				while(el.innerHeight() > (parseInt(el.css("font-size"), 10) * 1.5))
+				{
+					el.css("font-size", parseInt(el.css("font-size"), 10) - 4);
+				}
 			}
 
 			function randomize(min, max) {
@@ -496,18 +517,10 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			function run(obj) {
 				var _display = obj.find(".card-display")
 				var _hidden = obj.find(".card-hidden")
-				var dur = obj.data("duration");
 				var dir = obj.data("direction");
 				var nColor = _hidden.attr("class").split(' ').pop();
 				var cColor;
 				var bid = obj.data("id")
-				timeouts[bid] = setTimeout(function() {
-					obj.data("duration", getRandomDuration(4000, 5500));
-					obj.data("direction", getRandomDirection());
-					clearTimeout(repeater[bid]);
-					clearTimeout(timeouts[bid]);
-					run(obj);
-				}, dur)
 				var m, sH, fD;
 				var n = {};
 				var o = {};
@@ -551,13 +564,20 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					duration: 400,
 					queue: false,
 					complete: function() {
+						obj.find(".card-text-container").css("font-size", "40px")
 						_display.attr("class", "card-display").addClass(nColor);
 						_display.find(".card-text").empty();
 						_display.css(m, "0");
-						if(isType)
-						{
-							assignContent(obj, getRandomContent());
-						}
+						assignContent(obj, getRandomContent());
+						var dur = (obj.data("value")[0].length * 200) + 2500;
+						timeouts[bid] = setTimeout(function() {
+							// var d =  (obj.data("value")[0].length * 200) + 2500;
+							// obj.data("duration", d);
+							obj.data("direction", getRandomDirection());
+							clearTimeout(repeater[bid]);
+							clearTimeout(timeouts[bid]);
+							run(obj);
+						}, dur)
 					}
 				});
 				obj.find(".card-hidden").animate(
