@@ -317,7 +317,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			{
 				position: absolute;
 				max-width: 100%;
-				font-size: 64px;
+				font-size: 40px;
 				padding: 0 12px;
 				box-sizing: border-box;
 				text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
@@ -432,7 +432,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					{
 						clearTimeout(repeater[bid]);
 					}
-				}, 100)
+				}, 200)
 			}
 
 			function randomize(min, max) {
