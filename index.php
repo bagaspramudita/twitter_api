@@ -380,18 +380,20 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			{background-color: #0277BD;}
 			.typer
 			{
+				color: transparent;
 				animation: typer 1s infinite;
 				text-shadow: 0 0 transparent !important;
+				border-right: 1px solid #fff;
 			}
 			@keyframes typer
 			{
 				0%, 40%, 100%
 				{
-					color: #fff;
+					opacity: 0.8;
 				}
 				70%
 				{
-					color: transparent;
+					opacity: 0.2;
 				}
 			}
 		</style>
@@ -415,7 +417,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					var _hidden = _this.find(".card-hidden");
 					var rand = getRandomColor();
 					var ct = getRandomContent();
-					var dur = (ct[0].length * 210) + 2500;
+					var dur = (ct[0].length * 200) + 2500;
 					_this.data("duration", dur);
 					_this.data("direction", getRandomDirection());
 					_this.data("id", id);
@@ -444,7 +446,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					} else {
 						clearTimeout(repeater[bid]);
 					}
-				}, 210)
+				}, 200)
 			}
 
 			function checkOverflow(el)
@@ -452,7 +454,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				el = el.closest(".card-text-container");
 				while(el.innerHeight() > (parseInt(el.css("font-size"), 10) * 1.5))
 				{
-					el.css("font-size", parseInt(el.css("font-size"), 10) - 4);
+					el.css("font-size", parseInt(el.css("font-size"), 10) - 1);
 				}
 			}
 
@@ -569,7 +571,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 						_display.find(".card-text").empty();
 						_display.css(m, "0");
 						assignContent(obj, getRandomContent());
-						var dur = (obj.data("value")[0].length * 210) + 2500;
+						var dur = (obj.data("value")[0].length * 200) + 2500;
 						timeouts[bid] = setTimeout(function() {
 							// var d =  (obj.data("value")[0].length * 200) + 2500;
 							// obj.data("duration", d);
