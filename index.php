@@ -233,11 +233,11 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				<ul class="region-select">
 					<li class="dropdown-header">Negara</li>
 					<li><a href="javascript:void(0);" data-woeid="23424846" class="indonesia">Indonesia</a></li>
-					<li><a href="javascript:void(0);" data-woeid="2379832">United States</a></li>
+					<li><a href="javascript:void(0);" data-woeid="2459115">United States</a></li>
 					<li><a href="javascript:void(0);" data-woeid="23424975">Inggris</a></li>
 					<li><a href="javascript:void(0);" data-woeid="23424901">Malaysia</a></li>
 					<li><a href="javascript:void(0);" data-woeid="1225448">Thailand</a></li>
-					<li><a href="javascript:void(0);" data-woeid="2151330">China</a></li>
+					<!-- <li><a href="javascript:void(0);" data-woeid="2151330">China</a></li> -->
 					<li class="divider"></li>
 					<li class="dropdown-header">Kota</li>
 					<li><a href="javascript:void(0);" data-woeid="1047378" class="kota">DKI Jakarta</a></li>
@@ -629,7 +629,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 
 				setTimeout(function(){
 					window.location.href = window.location.href;
-				}, 900000)
+				}, 300000)
 
 				$(".last-update").html((date.getHours() > 10 ? date.getHours() : "0"+date.getHours()) + ":" + (date.getMinutes() > 10 ? date.getMinutes() : "0"+date.getMinutes()) + " WIB, " + date.getDate() + " " +month[date.getMonth()] + " " + date.getFullYear())
 				
