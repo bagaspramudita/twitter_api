@@ -16,8 +16,8 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<title>
 			JT x API Twitter
 		</title>
-		<!-- <link rel="stylesheet" href="assets/css/bootstrap.css" type="text/css"> -->
-		<!-- <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" type="text/css"> -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" type="text/css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"> </script>
 	</head>
 	<body>
@@ -229,17 +229,21 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<div class="region-select-container">
 			<div class="region-select-center">
 				Now Trending in 
-				<select class="region-select" required>
-					<option value="23424846" selected>Indonesia</option>
-					<option value="1047378">DKI Jakarta</option>
-					<option value="1047180">Bandung</option>
-					<option value="1030077">Bekasi</option>
-					<option value="2379832">United States</option>
-					<option value="23424975">Inggris</option>
-					<option value="23424901">Malaysia</option>
-					<option value="1225448">Thailand</option>
-					<option value="2151330">China</option>
-				</select>
+				<span class="region-display toggle-region">Indonesia</span>
+				<ul class="region-select">
+					<li class="dropdown-header">Negara</li>
+					<li><a href="?woeid=23424846" data-woeid="23424846" class="indonesia">Indonesia</a></li>
+					<li><a href="?woeid=2379832" data-woeid="2379832">United States</a></li>
+					<li><a href="?woeid=23424975" data-woeid="23424975">Inggris</a></li>
+					<li><a href="?woeid=23424901" data-woeid="23424901">Malaysia</a></li>
+					<li><a href="?woeid=1225448" data-woeid="1225448">Thailand</a></li>
+					<li><a href="?woeid=2151330" data-woeid="2151330">China</a></li>
+					<li class="divider"></li>
+					<li class="dropdown-header">Kota</li>
+					<li><a href="?woeid=1047378" data-woeid="1047378" class="kota">DKI Jakarta</a></li>
+					<li><a href="?woeid=1047180" data-woeid="1047180" class="kota">Bandung</a></li>
+					<li><a href="?woeid=1030077" data-woeid="1030077" class="kota">Bekasi</a></li>
+				</ul>
 			</div>
 			<div class="region-select-right">
 				Source: <a href="https://twitter.com">Twitter</a>
@@ -280,6 +284,12 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				margin: 0;
 				border: 0;
 				background-color: gray;
+				overflow: hidden;
+			}
+			a
+			{
+				text-decoration: none!important;
+				color: inherit!important;
 			}
 			.row:first-child
 			{
@@ -380,20 +390,62 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				-webkit-transform: translate(-50%, 0);
 				transform: translate(-50%, 0);
 			}
-			.region-select
+			.region-display
 			{
-			    background: transparent;
-			    -webkit-appearance: none;
-			    border: 0;
-			    /*text-decoration: underline dashed;*/
-			    padding: 0;
-			    margin: 0;
-			    color: #205066;
-			    width: auto;
-			    outline: transparent;
 				font-size: 27px;
 			    font-weight: 700;
 			    cursor: pointer;
+			}
+			.region-display:hover
+			{
+				border-bottom: 1px dashed #205066;
+			}
+			.region-select
+			{
+				display: none;
+				right: 0;
+				top: 60px;
+				position: absolute;
+			    background: #fff;
+			    border-radius: 4px;
+			    border: 1px solid #aaa;
+			    list-style: none;
+			    -webkit-appearance: none;
+			    /*text-decoration: underline dashed;*/
+			    padding: 8px 0;
+			    margin: 0;
+			    color: #205066;
+			    width: auto;
+			    line-height: 24px;
+			    font-size: 16px;
+			    outline: transparent;
+			    max-height: 250px;
+			    overflow: auto;
+			}
+			.region-select li a
+			{
+				display: block;
+				padding: 0 10px;
+				width: 100%;
+			}
+			.region-select .dropdown-header
+			{
+				padding: 0 15px 4px;
+			}
+			.region-select li:not(.divider) a:hover, .region-select li a.active
+			{
+				background-color: rgba(0,0,0,0.14)
+			}
+			li.dropdown-header a
+			{
+				background-color: transparent!important;
+			}
+			.divider
+			{
+			    height: 1px;
+    			margin: 8px 0;
+			    overflow: hidden;
+			    background-color: #e5e5e5;
 			}
 			.region-select-right
 			{
@@ -463,10 +515,11 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			}
 		</style>
 		<script>
+			var currId = "23424846";
+			var currReg = "Indonesia";
 			var colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
 			var directions = ["right", "left", "bottom", "top"];
 			var origFont = window.innerWidth < 1441 ? "48px" : "56px";
-			console.log(origFont)
 			var content = [];
 			<?php foreach($data_trends->trends as $datatrends): ?>
 				content.push(["<?php echo $datatrends->name ?>" , "<?php echo $datatrends->url ?>"])
@@ -499,16 +552,22 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					}, _this.data("duration"));
 					id+=1;
 				})
-
 				var split = window.location.href.split("?");
 				if(typeof split[1] != "undefined")
 				{
 					split = split[1].split("=");
-					$(".region-select").val(split[1])
+					currId = split[1];
+					var currReg = $("ul").find("[data-woeid='" + currId + "']")
+					$(".region-display").html(currReg.html());
+					currReg.addClass("active");
+					if(currReg.hasClass("kota"))
+					{
+						$(".indonesia").addClass("active");
+					}
 				}
 
-				$(".region-select").on("change", function(){
-					window.location.href = window.location.origin + window.location.pathname + "?woeid="+$(this).val();
+				$(".toggle-region").on("click", function(){
+					$(".region-select").toggle()
 				})
 
 				setTimeout(function(){
@@ -516,6 +575,9 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				}, 900000)
 
 				$(".last-update").html((date.getHours() > 10 ? date.getHours() : "0"+date.getHours()) + ":" + (date.getMinutes() > 10 ? date.getMinutes() : "0"+date.getMinutes()) + " WIB, " + date.getDate() + " " +month[date.getMonth()] + " " + date.getFullYear())
+				$("li a").each(function(){
+
+				})
 			})
 
 			function slowType(obj, text, index) {
@@ -678,8 +740,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				});
 			}
 		</script>
-<!-- 
 		<script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
-		 -->
 	</body>
 </html>
