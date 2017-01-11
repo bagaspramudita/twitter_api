@@ -150,8 +150,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 			<div class="card">
 				<div class="card-display">
@@ -159,8 +157,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 			<div class="card">
 				<div class="card-display">
@@ -168,8 +164,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 		</div>
 		<div class="row">
@@ -179,8 +173,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 			<div class="card">
 				<div class="card-display">
@@ -188,8 +180,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 			<div class="card">
 				<div class="card-display">
@@ -197,8 +187,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 			<div class="card">
 				<div class="card-display">
@@ -206,8 +194,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 		</div>
 		<div class="row">
@@ -217,8 +203,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 			<div class="card">
 				<div class="card-display">
@@ -226,8 +210,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 			<div class="card">
 				<div class="card-display">
@@ -235,8 +217,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 			<div class="card">
 				<div class="card-display">
@@ -244,18 +224,29 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				</div>
 				<div class="card-hidden">
 				</div>
-				<a href="" target="_blank">
-				</a>
 			</div>
 		</div>
 		<div class="region-select-container">
-			Menampilkan trending topic di 
-			<select class="region-select" required>
-				<option value="23424846" selected>Indonesia</option>
-				<option value="1047378">DKI Jakarta</option>
-				<option value="1047180">Bandung</option>
-				<option value="1030077">Bekasi</option>
-			</select>
+			<div class="region-select-center">
+				Now Trending in 
+				<select class="region-select" required>
+					<option value="23424846" selected>Indonesia</option>
+					<option value="1047378">DKI Jakarta</option>
+					<option value="1047180">Bandung</option>
+					<option value="1030077">Bekasi</option>
+					<option value="2379832">United States</option>
+					<option value="23424975">Inggris</option>
+					<option value="23424901">Malaysia</option>
+					<option value="1225448">Thailand</option>
+					<option value="2151330">China</option>
+				</select>
+			</div>
+			<div class="region-select-right">
+				Source: <a href="https://twitter.com">Twitter</a>
+			</div>
+			<div class="region-select-left">
+				Last updated: <span class="last-update"></span>
+			</div>
 		</div>
 		<style>
 			@font-face {
@@ -290,14 +281,14 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				border: 0;
 				background-color: gray;
 			}
+			.row:first-child
+			{
+				margin-top: 60px;
+			}
 			.row
 			{
-				height: 33.33vh;
+				height: calc((100vh - 60px) / 3);
 				background-color: white
-			}
-			.row:nth-child(3n)
-			{
-				height: 33.34vh
 			}
 			.card
 			{
@@ -324,7 +315,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			{
 				position: absolute;
 				max-width: 100%;
-				font-size: 40px;
+				font-size: 48px;
 				padding: 0 12px;
 				box-sizing: border-box;
 				top: 50%;
@@ -368,24 +359,63 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			.region-select-container
 			{
 				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				background-color: #f7f7f7;
+				height: 60px;
+			    color: #205066;
+				box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+				font-size: 27px;
+				line-height: 60px;
+				z-index: 99;
+			}
+			.region-select-center
+			{
+				position: absolute;
+				top: 0;
+				bottom: 0;
 				left: 50%;
+				color: #205066;
 				-webkit-transform: translate(-50%, 0);
 				transform: translate(-50%, 0);
-				bottom: 10px;
-			    font-size: 14px;
-				z-index: 99
 			}
 			.region-select
 			{
 			    background: transparent;
 			    -webkit-appearance: none;
 			    border: 0;
-			    text-decoration: underline dashed;
+			    /*text-decoration: underline dashed;*/
 			    padding: 0;
 			    margin: 0;
+			    color: #205066;
 			    width: auto;
 			    outline: transparent;
-			    font-weight: 500;
+				font-size: 27px;
+			    font-weight: 700;
+			    cursor: pointer;
+			}
+			.region-select-right
+			{
+				position: absolute;
+				font-size: 17px;
+				right: 30px;
+			}
+			.region-select-right a, .region-select-right a:active, .region-select-right a:visited, .region-select-right a:hover, .last-update
+			{
+				text-decoration: none;
+				color: #205066;
+				font-weight: 700;
+			}
+			.region-select-left
+			{
+				position: absolute;
+				font-size: 17px;
+				left: 30px;
+			}
+			.region-select option
+			{
+				font-size: 14px;
 			}
 			.blue
 			{background-color: blue}
@@ -425,15 +455,24 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					opacity: 0.2;
 				}
 			}
+			@media(min-width: 1441px){
+				.card .card-display .card-text-container
+				{
+					font-size: 56px
+				}
+			}
 		</style>
 		<script>
 			var colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
 			var directions = ["right", "left", "bottom", "top"];
-
+			var origFont = window.innerWidth < 1441 ? "48px" : "56px";
+			console.log(origFont)
 			var content = [];
 			<?php foreach($data_trends->trends as $datatrends): ?>
 				content.push(["<?php echo $datatrends->name ?>" , "<?php echo $datatrends->url ?>"])
 			<?php endforeach; ?>
+			var date = new Date();
+			var month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "December"]
 			var aContent = [];
 			var repeater = [];
 			var timeouts = [];
@@ -471,6 +510,12 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				$(".region-select").on("change", function(){
 					window.location.href = window.location.origin + window.location.pathname + "?woeid="+$(this).val();
 				})
+
+				setTimeout(function(){
+					window.location.href = window.location.href;
+				}, 900000)
+
+				$(".last-update").html((date.getHours() > 10 ? date.getHours() : "0"+date.getHours()) + ":" + (date.getMinutes() > 10 ? date.getMinutes() : "0"+date.getMinutes()) + " WIB, " + date.getDate() + " " +month[date.getMonth()] + " " + date.getFullYear())
 			})
 
 			function slowType(obj, text, index) {
@@ -606,7 +651,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					duration: 400,
 					queue: false,
 					complete: function() {
-						obj.find(".card-text-container").css("font-size", "40px")
+						obj.find(".card-text-container").css("font-size", origFont)
 						_display.attr("class", "card-display").addClass(nColor);
 						_display.find(".card-text").empty();
 						_display.css(m, "0");
