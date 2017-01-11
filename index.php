@@ -373,8 +373,9 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			{
 				display: none;
 				padding: 0 12px;
+				font-size: 18px;
 			}
-			.card .card-display .card-text-container .card-text
+			.card .card-display .card-text-container .card-text, .card .card-display .card-volume
 			{
 				text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 			}
@@ -669,7 +670,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					_this.data("value", ct);
 					if(ct[2].length > 0)
 					{
-						_volume.html(ct[2] + " orang membicarakan ini");
+						_volume.html(String(ct[2]).replace(/(.)(?=(\d{3})+$)/g,'$1,') + " orang membicarakan ini");
 						_volume.fadeIn(600);
 					}
 					else
@@ -872,7 +873,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 						assignContent(obj, getRandomContent());
 						if(obj.data("value")[2].length > 0)
 						{
-							_volume.html(obj.data("value")[2] + " orang membicarakan ini");
+							_volume.html(String(obj.data("value")[2]).replace(/(.)(?=(\d{3})+$)/g,'$1,') + " orang membicarakan ini");
 							_volume.fadeIn(600);
 						}
 						else
