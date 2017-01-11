@@ -21,18 +21,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"> </script>
 	</head>
 	<body>
-		<?php
-		  if(isset($_GET['woeid'])){
-			$woeid = $_GET['woeid'];
-		  }
-		  else{
-			$woeid = 23424846; // Default untuk Indonesia
-		  }
-			$trends = $connection->get('trends/place', ['id' => $woeid]);
-		  if ($connection->getLastHttpCode() != 200) {
-			  echo json_encode($trends);exit();
-		  }
-		?>
 		<!-- <div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -139,58 +127,40 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<div class="row">
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
 				</div>
 				<div class="card-hidden">
 				</div>
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
 				</div>
 				<div class="card-hidden">
 				</div>
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
 				</div>
 				<div class="card-hidden">
 				</div>
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
-				</div>
-				<div class="card-hidden">
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="card">
-				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
-				</div>
-				<div class="card-hidden">
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
-				</div>
-				<div class="card-hidden">
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
-				</div>
-				<div class="card-hidden">
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -199,28 +169,82 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<div class="row">
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
 				</div>
 				<div class="card-hidden">
 				</div>
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
 				</div>
 				<div class="card-hidden">
 				</div>
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
 				</div>
 				<div class="card-hidden">
 				</div>
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
+				</div>
+				<div class="card-hidden">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="card">
+				<div class="card-display">
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
+				</div>
+				<div class="card-hidden">
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-display">
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
+				</div>
+				<div class="card-hidden">
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-display">
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
+				</div>
+				<div class="card-hidden">
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-display">
+					<div class="card-content">
+						<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+						<span class="card-volume"></span>
+					</div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -250,6 +274,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				<span class="source-display toggle-source">Twitter</span>
 				<ul class="source-select">
 					<li><a href="javascript:void(0)" data-source="twitter">Twitter</a></li>
+					<li><a href="javascript:void(0)" data-source="google">Google</a></li>
 				</ul>
 			</div>
 			<div class="region-select-left">
@@ -327,17 +352,27 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				z-index: 4;
 				
 			}
-			.card .card-display .card-text-container
+			.card-content
 			{
 				position: absolute;
-				max-width: 100%;
-				font-size: 48px;
-				padding: 0 12px;
-				box-sizing: border-box;
 				top: 50%;
 				-webkit-transform: translate(0, -50%);
 				transform: translate(0, -50%);
-				word-wrap: break-word;
+			}
+			.card .card-display .card-text-container
+			{
+				position: relative;
+				max-width: 100%;
+				font-size: 48px;
+				padding: 0 12px;
+				overflow: visible;
+				white-space: nowrap;
+				box-sizing: border-box;
+			}
+			.card-volume
+			{
+				display: none;
+				padding: 0 12px;
 			}
 			.card .card-display .card-text-container .card-text
 			{
@@ -544,28 +579,84 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			}
 		</style>
 		<script>
+			<?php
+				$datatrends;
+				if(!isset($_GET['source']) || $_GET['source'] == "twitter")
+				{
+					if(isset($_GET['woeid'])){
+						$woeid = $_GET['woeid'];
+					}
+					  else{
+						$woeid = 23424846; // Default untuk Indonesia
+					}
+						$trends = $connection->get('trends/place', ['id' => $woeid]);
+					if ($connection->getLastHttpCode() != 200) {
+					  echo json_encode($trends);exit();
+					}
+					$datatrends = $trends[0];
+				}
+				else if(isset($_GET['source']) && $_GET['source'] == "google")
+				{
+					$trends = file_get_contents("https://nulis.babe.news/api/gtrend");
+					$datatrends = json_decode($trends);
+				}
+			?>
 			var currId = "23424846";
 			var currReg = "Indonesia";
 			var currSource = "twitter";
 			var colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
 			var directions = ["right", "left", "bottom", "top"];
 			var origFont = window.innerWidth < 1441 ? "48px" : "56px";
-			var content = [];
-			<?php foreach($data_trends->trends as $datatrends): ?>
-				content.push(["<?php echo $datatrends->name ?>" , "<?php echo $datatrends->url ?>"])
-			<?php endforeach; ?>
-			var date = new Date("<?php echo $data_trends->created_at ?>");
+			var split = window.location.href.split("?");
+			if(typeof split[1] != "undefined")
+			{
+				split = split[1].split("&");
+				var ln = split.length;
+				for (var q = 0; q < ln; q++)
+				{
+					var array = split[q].split("=")
+					var key = array[0];
+					var value = array[1];
+					if(key == "woeid")
+					{
+						currId = value;
+						var currReg = $(".region-select").find("[data-woeid='" + currId + "']")
+						$(".region-display").html(currReg.html());
+						currReg.addClass("active");
+						if(currReg.hasClass("kota"))
+						{
+							$(".indonesia").addClass("active");
+						}
+					}
+					else if (key == "source")
+					{
+						currSource = value;
+						$(".source-select").find("[data-source='" + currSource + "']").addClass("active");
+						$(".source-display").html(currSource);
+					}
+				}
+			}
+			else
+			{
+				$(".indonesia").addClass("active");
+			}
+			var date = new Date("<?php echo $datatrends->created_at ?>");
 			var month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "December"]
 			var aContent = [];
 			var repeater = [];
 			var timeouts = [];
 			var isType = true;
 			var id = 0;
+			var content = [];
+			<?php foreach($datatrends->trends as $data_trends): ?>
+				content.push(["<?php echo $data_trends->name ?>" , "<?php echo $data_trends->url ?>", "<?php echo isset($data_trends->tweet_volume) ? $data_trends->tweet_volume : '' ?>"])
+			<?php endforeach; ?>
 			$(function() {
 				$(".card").each(function() {
 					var _this = $(this);
 					var _display = _this.find(".card-display");
 					var _hidden = _this.find(".card-hidden");
+					var _volume = _this.find(".card-volume");
 					var rand = getRandomColor();
 					var ct = getRandomContent();
 					var dur = (ct[0].length * 200) + 2500;
@@ -576,42 +667,41 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					_hidden.addClass(getRandomColor(rand));
 					_this.find("a").attr("href", ct[1]);
 					_this.data("value", ct);
+					if(ct[2].length > 0)
+					{
+						_volume.html(ct[2] + " orang membicarakan ini");
+						_volume.fadeIn(600);
+					}
+					else
+					{
+						_volume.hide()
+						_volume.empty();
+					}
 					slowType(_this, ct[0], 0);
 					timeouts[id] = setTimeout(function() {
 						run(_this)
-					}, _this.data("duration"));
+					}, dur);
 					id+=1;
 				})
-				var split = window.location.href.split("?");
-				if(typeof split[1] != "undefined")
-				{
-					split = split[1].split("&");
-					var ln = split.length;
-					for (var q = 0; q < ln; q++)
+
+				$(window).on("click", function(e){
+					if($(".toggle-source").hasClass("active"))
 					{
-						var array = split[q].split("=")
-						var key = array[0];
-						var value = array[1];
-						if(key == "woeid")
+						if(!$(e.target.offsetParent).hasClass("source-select") && !$(e.target).hasClass("source-select") && !$(e.target).hasClass("toggle-source"))
 						{
-							currId = value;
-							var currReg = $(".region-select").find("[data-woeid='" + currId + "']")
-							$(".region-display").html(currReg.html());
-							currReg.addClass("active");
-							if(currReg.hasClass("kota"))
-							{
-								$(".indonesia").addClass("active");
-							}
-						}
-						else if (key == "source")
-						{
-							currSource = value;
-							$(".source-select").find("[data-source='" + currSource + "']").addClass("active");
-							$(".source-display").html(currSource);
+							$(".source-select").hide();
+							$(".toggle-source").toggleClass("active")
 						}
 					}
-					
-				}
+					else if($(".toggle-region").hasClass("active"))
+					{
+						if(!$(e.target.offsetParent).hasClass("region-select") && !$(e.target).hasClass("region-select") && !$(e.target).hasClass("toggle-region"))
+						{
+							$(".region-select").hide();
+							$(".toggle-region").toggleClass("active")
+						}
+					}
+				})
 
 				$(".toggle-region").on("click", function(){
 					$(".region-select").toggle();
@@ -625,6 +715,11 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				{
 					var reg = $(this).data("woeid");
 					window.location.href = window.location.origin + window.location.pathname + "?woeid=" + reg + "&source=" + currSource;
+				})
+				$(".source-select a").on("click", function()
+				{
+					var source = $(this).data("source");
+					window.location.href = window.location.origin + window.location.pathname + "?woeid=" + currId + "&source=" + source;
 				})
 
 				setTimeout(function(){
@@ -654,7 +749,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			function checkOverflow(el)
 			{
 				el = el.closest(".card-text-container");
-				while(el.innerHeight() > (parseInt(el.css("font-size"), 10) * 1.5))
+				while(el.innerWidth() > el.closest(".card-display").innerWidth())
 				{
 					el.css("font-size", parseInt(el.css("font-size"), 10) - 1);
 				}
@@ -721,6 +816,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			function run(obj) {
 				var _display = obj.find(".card-display")
 				var _hidden = obj.find(".card-hidden")
+				var _volume = obj.find(".card-volume")
 				var dir = obj.data("direction");
 				var nColor = _hidden.attr("class").split(' ').pop();
 				var cColor;
@@ -763,6 +859,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				}
 				_hidden.css(m, sH);
 				_display.css(m, "0");
+				_volume.fadeOut(400);
 				_display.animate(
 					n, {
 					duration: 400,
@@ -773,6 +870,15 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 						_display.find(".card-text").empty();
 						_display.css(m, "0");
 						assignContent(obj, getRandomContent());
+						if(obj.data("value")[2].length > 0)
+						{
+							_volume.html(obj.data("value")[2] + " orang membicarakan ini");
+							_volume.fadeIn(600);
+						}
+						else
+						{
+							_volume.empty();
+						}
 						var dur = (obj.data("value")[0].length * 200) + 2500;
 						timeouts[bid] = setTimeout(function() {
 							// var d =  (obj.data("value")[0].length * 200) + 2500;
@@ -784,7 +890,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 						}, dur)
 					}
 				});
-				obj.find(".card-hidden").animate(
+				_hidden.animate(
 					o, {
 					duration: 400,
 					queue: false,
