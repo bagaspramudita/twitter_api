@@ -232,21 +232,25 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				<span class="region-display toggle-region">Indonesia</span>
 				<ul class="region-select">
 					<li class="dropdown-header">Negara</li>
-					<li><a href="?woeid=23424846" data-woeid="23424846" class="indonesia">Indonesia</a></li>
-					<li><a href="?woeid=2379832" data-woeid="2379832">United States</a></li>
-					<li><a href="?woeid=23424975" data-woeid="23424975">Inggris</a></li>
-					<li><a href="?woeid=23424901" data-woeid="23424901">Malaysia</a></li>
-					<li><a href="?woeid=1225448" data-woeid="1225448">Thailand</a></li>
-					<li><a href="?woeid=2151330" data-woeid="2151330">China</a></li>
+					<li><a href="javascript:void(0);" data-woeid="23424846" class="indonesia">Indonesia</a></li>
+					<li><a href="javascript:void(0);" data-woeid="2379832">United States</a></li>
+					<li><a href="javascript:void(0);" data-woeid="23424975">Inggris</a></li>
+					<li><a href="javascript:void(0);" data-woeid="23424901">Malaysia</a></li>
+					<li><a href="javascript:void(0);" data-woeid="1225448">Thailand</a></li>
+					<li><a href="javascript:void(0);" data-woeid="2151330">China</a></li>
 					<li class="divider"></li>
 					<li class="dropdown-header">Kota</li>
-					<li><a href="?woeid=1047378" data-woeid="1047378" class="kota">DKI Jakarta</a></li>
-					<li><a href="?woeid=1047180" data-woeid="1047180" class="kota">Bandung</a></li>
-					<li><a href="?woeid=1030077" data-woeid="1030077" class="kota">Bekasi</a></li>
+					<li><a href="javascript:void(0);" data-woeid="1047378" class="kota">DKI Jakarta</a></li>
+					<li><a href="javascript:void(0);" data-woeid="1047180" class="kota">Bandung</a></li>
+					<li><a href="javascript:void(0);" data-woeid="1030077" class="kota">Bekasi</a></li>
 				</ul>
 			</div>
 			<div class="region-select-right">
-				Source: <a href="https://twitter.com">Twitter</a>
+				Source: 
+				<span class="source-display toggle-source">Twitter</span>
+				<ul class="source-select">
+					<li><a href="javascript:void(0)" data-source="twitter">Twitter</a></li>
+				</ul>
 			</div>
 			<div class="region-select-left">
 				Last updated: <span class="last-update"></span>
@@ -298,7 +302,9 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			.row
 			{
 				height: calc((100vh - 60px) / 3);
-				background-color: white
+				background-color: white;
+				margin: 0;
+				padding:  0
 			}
 			.card
 			{
@@ -396,11 +402,17 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			    font-weight: 700;
 			    cursor: pointer;
 			}
-			.region-display:hover
+			.region-display:hover, .region-display.active, .source-display:hover, .source-display.active
 			{
 				border-bottom: 1px dashed #205066;
 			}
-			.region-select
+			.source-display
+			{
+				text-transform: capitalize;
+				font-weight: 700;
+				cursor: pointer;
+			}
+			.region-select, .source-select
 			{
 				display: none;
 				right: 0;
@@ -411,30 +423,47 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			    border: 1px solid #aaa;
 			    list-style: none;
 			    -webkit-appearance: none;
-			    /*text-decoration: underline dashed;*/
 			    padding: 8px 0;
 			    margin: 0;
 			    color: #205066;
 			    width: auto;
-			    line-height: 24px;
+			    line-height: 28px;
 			    font-size: 16px;
 			    outline: transparent;
 			    max-height: 250px;
 			    overflow: auto;
 			}
-			.region-select li a
+			.region-select::-webkit-scrollbar, .source-select::-webkit-scrollbar
+			{
+			    width: 8px;
+			    border-radius: 2px;
+			}
+			 
+			.region-select::-webkit-scrollbar-track, .source-select::-webkit-scrollbar-track
+			{
+			    border-radius: 2px;
+			    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+			}
+			 
+			.region-select::-webkit-scrollbar-thumb, .source-select::-webkit-scrollbar-thumb
+			{
+			   	border-radius: 2px;
+			  	background-color: rgba(0,0,0,0.25);
+			  	outline: none;
+			}
+			.region-select li a, .source-select li a
 			{
 				display: block;
-				padding: 0 10px;
+				padding: 0 18px;
 				width: 100%;
 			}
-			.region-select .dropdown-header
+			.region-select .dropdown-header, .source-select .dropdown-header
 			{
-				padding: 0 15px 4px;
+				padding: 0 20px 4px;
 			}
-			.region-select li:not(.divider) a:hover, .region-select li a.active
+			.region-select li:not(.divider) a:hover, .region-select li a.active, .source-select li:not(.divider) a:hover, .source-select li a.active
 			{
-				background-color: rgba(0,0,0,0.14)
+				background-color: rgba(0,0,0,0.08)
 			}
 			li.dropdown-header a
 			{
@@ -443,7 +472,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			.divider
 			{
 			    height: 1px;
-    			margin: 8px 0;
+    			margin: 12px 0;
 			    overflow: hidden;
 			    background-color: #e5e5e5;
 			}
@@ -453,7 +482,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				font-size: 17px;
 				right: 30px;
 			}
-			.region-select-right a, .region-select-right a:active, .region-select-right a:visited, .region-select-right a:hover, .last-update
+			.region-select-right .source-display, .last-update
 			{
 				text-decoration: none;
 				color: #205066;
@@ -517,6 +546,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<script>
 			var currId = "23424846";
 			var currReg = "Indonesia";
+			var currSource = "twitter";
 			var colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
 			var directions = ["right", "left", "bottom", "top"];
 			var origFont = window.innerWidth < 1441 ? "48px" : "56px";
@@ -524,7 +554,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			<?php foreach($data_trends->trends as $datatrends): ?>
 				content.push(["<?php echo $datatrends->name ?>" , "<?php echo $datatrends->url ?>"])
 			<?php endforeach; ?>
-			var date = new Date();
+			var date = new Date("<?php echo $data_trends->created_at ?>");
 			var month = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "December"]
 			var aContent = [];
 			var repeater = [];
@@ -555,19 +585,46 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				var split = window.location.href.split("?");
 				if(typeof split[1] != "undefined")
 				{
-					split = split[1].split("=");
-					currId = split[1];
-					var currReg = $("ul").find("[data-woeid='" + currId + "']")
-					$(".region-display").html(currReg.html());
-					currReg.addClass("active");
-					if(currReg.hasClass("kota"))
+					split = split[1].split("&");
+					var ln = split.length;
+					for (var q = 0; q < ln; q++)
 					{
-						$(".indonesia").addClass("active");
+						var array = split[q].split("=")
+						var key = array[0];
+						var value = array[1];
+						if(key == "woeid")
+						{
+							currId = value;
+							var currReg = $(".region-select").find("[data-woeid='" + currId + "']")
+							$(".region-display").html(currReg.html());
+							currReg.addClass("active");
+							if(currReg.hasClass("kota"))
+							{
+								$(".indonesia").addClass("active");
+							}
+						}
+						else if (key == "source")
+						{
+							currSource = value;
+							$(".source-select").find("[data-source='" + currSource + "']").addClass("active");
+							$(".source-display").html(currSource);
+						}
 					}
+					
 				}
 
 				$(".toggle-region").on("click", function(){
-					$(".region-select").toggle()
+					$(".region-select").toggle();
+					$(this).toggleClass("active")
+				})
+				$(".toggle-source").on("click", function(){
+					$(".source-select").toggle();
+					$(this).toggleClass("active")
+				})
+				$(".region-select a").on("click", function()
+				{
+					var reg = $(this).data("woeid");
+					window.location.href = window.location.origin + window.location.pathname + "?woeid=" + reg + "&source=" + currSource;
 				})
 
 				setTimeout(function(){
@@ -575,9 +632,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				}, 900000)
 
 				$(".last-update").html((date.getHours() > 10 ? date.getHours() : "0"+date.getHours()) + ":" + (date.getMinutes() > 10 ? date.getMinutes() : "0"+date.getMinutes()) + " WIB, " + date.getDate() + " " +month[date.getMonth()] + " " + date.getFullYear())
-				$("li a").each(function(){
-
-				})
+				
 			})
 
 			function slowType(obj, text, index) {
