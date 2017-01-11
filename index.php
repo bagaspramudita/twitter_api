@@ -21,6 +21,18 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"> </script>
 	</head>
 	<body>
+		<?php
+		  if(isset($_GET['woeid'])){
+			$woeid = $_GET['woeid'];
+		  }
+		  else{
+			$woeid = 23424846; // Default untuk Indonesia
+		  }
+			$trends = $connection->get('trends/place', ['id' => $woeid]);
+		  if ($connection->getLastHttpCode() != 200) {
+			  echo json_encode($trends);exit();
+		  }
+		?>
 		<!-- <div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -31,19 +43,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<?php
-							  if(isset($_GET['woeid'])){
-								$woeid = $_GET['woeid'];
-							  }
-							  else{
-								$woeid = 23424846; // Default untuk Indonesia
-							  }
-								$trends = $connection->get('trends/place', ['id' => $woeid]);
-
-							  if ($connection->getLastHttpCode() != 200) {
-								  echo json_encode($trends);exit();
-							  }
-							?>
+					
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<form class="form-inline">
@@ -139,7 +139,14 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<div class="row">
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
+				</div>
+				<div class="card-hidden">
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-display">
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -148,7 +155,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -157,16 +164,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
-				</div>
-				<div class="card-hidden">
-				</div>
-				<a href="" target="_blank">
-				</a>
-			</div>
-			<div class="card">
-				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -177,7 +175,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<div class="row">
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -186,7 +184,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -195,7 +193,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -204,7 +202,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -215,7 +213,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<div class="row">
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -224,7 +222,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -233,7 +231,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
@@ -242,13 +240,22 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			</div>
 			<div class="card">
 				<div class="card-display">
-					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span></div>
+					<div class="card-text-container"><span class="card-text"></span><span class="typer">|</span><a href="" target="_blank"> </a></div>
 				</div>
 				<div class="card-hidden">
 				</div>
 				<a href="" target="_blank">
 				</a>
 			</div>
+		</div>
+		<div class="region-select-container">
+			Menampilkan trending topic di 
+			<select class="region-select" required>
+				<option value="23424846" selected>Indonesia</option>
+				<option value="1047378">DKI Jakarta</option>
+				<option value="1047180">Bandung</option>
+				<option value="1030077">Bekasi</option>
+			</select>
 		</div>
 		<style>
 			@font-face {
@@ -358,6 +365,28 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				border-radius: 50%;
 				z-index: 999;
 			}
+			.region-select-container
+			{
+				position: fixed;
+				left: 50%;
+				-webkit-transform: translate(-50%, 0);
+				transform: translate(-50%, 0);
+				bottom: 10px;
+			    font-size: 14px;
+				z-index: 99
+			}
+			.region-select
+			{
+			    background: transparent;
+			    -webkit-appearance: none;
+			    border: 0;
+			    text-decoration: underline dashed;
+			    padding: 0;
+			    margin: 0;
+			    width: auto;
+			    outline: transparent;
+			    font-weight: 500;
+			}
 			.blue
 			{background-color: blue}
 			.red
@@ -430,6 +459,17 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 						run(_this)
 					}, _this.data("duration"));
 					id+=1;
+				})
+
+				var split = window.location.href.split("?");
+				if(typeof split[1] != "undefined")
+				{
+					split = split[1].split("=");
+					$(".region-select").val(split[1])
+				}
+
+				$(".region-select").on("change", function(){
+					window.location.href = window.location.origin + window.location.pathname + "?woeid="+$(this).val();
 				})
 			})
 
