@@ -16,114 +16,11 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 		<title>
 			JT x API Twitter
 		</title>
-		<link rel="stylesheet" href="assets/css/bootstrap.css" type="text/css">
-		<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" type="text/css">
+		<!-- <link rel="stylesheet" href="assets/css/bootstrap.css" type="text/css"> -->
+		<!-- <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" type="text/css"> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"> </script>
 	</head>
 	<body>
-		<!-- <div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h1>
-						JalanTikus - Twitter Trending API
-					</h1>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<form class="form-inline">
-								<div class="form-group">
-									<label>Woeid</label> <input type="text" class="form-control" value="<?php echo $woeid ?>" name="woeid">
-								</div><input type="submit" value="Terapkan" class="btn btn-default">
-							</form>
-						</div>
-					</div>
-					<div class="well well-sm">
-						<b>woeid.rosselliot.co.nz</b>.
-						<ol>
-							<li>Indonesia : <b>23424846</b>
-							</li>
-							<li>DKI Jakarta : <b>1047378</b>
-							</li>
-							<li>Bandung : <b>1047180</b>
-							</li>
-							<li>Bekasi : <b>1030077</b>
-							</li>
-						</ol>
-					</div><?php foreach($trends as $data_trends): ?>
-					<table class="table table-bordered table-responsive">
-						<tr>
-							<td colspan="2" align="center">
-								<b>Informasi Umum</b>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Data dibuat pada :
-							</td>
-							<td>
-								<?php echo $data_trends->created_at; ?>
-							</td>
-						</tr><?php foreach($data_trends->locations as $location): ?>
-						<tr>
-							<td>
-								Lokasi :
-							</td>
-							<td>
-								<?php echo $location->name; ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Woeid :
-							</td>
-							<td>
-								<?php echo $location->woeid; ?>
-							</td>
-						</tr><?php endforeach; ?>
-					</table>
-					<table class="table table-striped table-bordered">
-						<tr>
-							<td align="center">
-								<b>Trending Topik</b>
-							</td>
-							<td align="center">
-								<b>Jumlah Tweets</b>
-							</td>
-							<td align="center">
-								<b>Link ke twitter</b>
-							</td>
-						</tr>
-						<?php foreach($data_trends->trends as $datatrends): ?>
-						<tr>
-							<?php
-									$kueri  = urlencode($datatrends->query);
-									?>
-							<td>
-								<a href="search.php?q=%3C?php%20echo%20$kueri;%20?%3E"><?php echo $datatrends->name ?></a>
-							</td>
-							<td>
-								<?php if($datatrends->tweet_volume != NULL) echo $datatrends->tweet_volume;else '-';  ?>
-							</td>
-							<td>
-								<a href="%3C?php%20echo%20$datatrends-%3Eurl%20?%3E" target="_blank">Klik Disini</a>
-							</td>
-						</tr>
-						<?php endforeach; ?>
-					</table><?php endforeach; ?>
-				</div>
-				<div class="col-md-12">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							© <?php echo date('Y') ?> by <b>Bagas Pramudita</b>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
 		<div class="row">
 			<div class="card">
 				<div class="card-display">
@@ -274,7 +171,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				<span class="source-display toggle-source">Twitter</span>
 				<ul class="source-select">
 					<li><a href="javascript:void(0)" data-source="twitter">Twitter</a></li>
-					<li><a href="javascript:void(0)" data-source="google">Google</a></li>
+					<!-- <li><a href="javascript:void(0)" data-source="google">Google</a></li> -->
 				</ul>
 			</div>
 			<div class="region-select-left">
@@ -495,6 +392,8 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			}
 			.region-select .dropdown-header, .source-select .dropdown-header
 			{
+				font-size: 14px;
+				color: #999;
 				padding: 0 20px 4px;
 			}
 			.region-select li:not(.divider) a:hover, .region-select li a.active, .source-select li:not(.divider) a:hover, .source-select li a.active
@@ -694,7 +593,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 							$(".toggle-source").toggleClass("active")
 						}
 					}
-					else if($(".toggle-region").hasClass("active"))
+					if($(".toggle-region").hasClass("active"))
 					{
 						if(!$(e.target.offsetParent).hasClass("region-select") && !$(e.target).hasClass("region-select") && !$(e.target).hasClass("toggle-region"))
 						{
@@ -727,7 +626,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 					window.location.href = window.location.href;
 				}, 300000)
 
-				$(".last-update").html((date.getHours() > 10 ? date.getHours() : "0"+date.getHours()) + ":" + (date.getMinutes() > 10 ? date.getMinutes() : "0"+date.getMinutes()) + " WIB, " + date.getDate() + " " +month[date.getMonth()] + " " + date.getFullYear())
+				$(".last-update").html((date.getHours() >= 10 ? date.getHours() : "0"+date.getHours()) + ":" + (date.getMinutes() >= 10 ? date.getMinutes() : "0"+date.getMinutes()) + " WIB, " + date.getDate() + " " +month[date.getMonth()] + " " + date.getFullYear())
 				
 			})
 
@@ -882,8 +781,6 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 						}
 						var dur = (obj.data("value")[0].length * 200) + 2500;
 						timeouts[bid] = setTimeout(function() {
-							// var d =  (obj.data("value")[0].length * 200) + 2500;
-							// obj.data("duration", d);
 							obj.data("direction", getRandomDirection());
 							clearTimeout(repeater[bid]);
 							clearTimeout(timeouts[bid]);
@@ -902,6 +799,8 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 				});
 			}
 		</script>
+<!-- 
 		<script src="assets/js/bootstrap.min.js" type="text/javascript"> </script>
+	 -->
 	</body>
 </html>
