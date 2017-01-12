@@ -270,7 +270,7 @@ $urlnya           = $connection->url('oauth/authorize', array('oauth_token' => $
 			{
 				display: none;
 				padding: 0 12px;
-				font-size: 18px;
+				font-size: 23px;
 			}
 			.card .card-display .card-text-container .card-text, .card .card-display .card-volume
 			{
